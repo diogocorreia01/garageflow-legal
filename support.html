@@ -3,114 +3,340 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Política de Privacidade — GarageFlow</title>
+  <title>Suporte — GarageFlow</title>
   <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
     body {
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      max-width: 760px;
-      margin: 0 auto;
-      padding: 40px 24px;
-      color: #1a1a1a;
-      line-height: 1.7;
+      background: #f0f4f8;
+      color: #0d1b2a;
+      line-height: 1.6;
     }
-    h1 { font-size: 28px; font-weight: 800; margin-bottom: 4px; }
-    .subtitle { color: #666; font-size: 14px; margin-bottom: 40px; }
-    h2 { font-size: 16px; font-weight: 700; margin-top: 32px; margin-bottom: 8px; }
-    p { margin: 8px 0; }
-    ul { margin: 8px 0 8px 20px; padding: 0; }
-    li { margin-bottom: 6px; }
-    a { color: #1952D3; }
+
+    /* ── Hero ── */
+    .hero {
+      background: #0d1b2a;
+      color: #fff;
+      text-align: center;
+      padding: 60px 24px 48px;
+    }
+    .hero img {
+      width: 88px;
+      height: 88px;
+      border-radius: 20px;
+      margin-bottom: 20px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+    }
+    .hero h1 { font-size: 30px; font-weight: 800; margin-bottom: 8px; }
+    .hero p  { font-size: 16px; color: #94a3b8; max-width: 480px; margin: 0 auto 28px; }
+
+    .badge-row { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; }
+    .badge-row a img { height: 44px; }
+
+    /* ── Layout ── */
+    .container { max-width: 760px; margin: 0 auto; padding: 40px 24px 80px; }
+
+    /* ── Section title ── */
+    .section-title {
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      color: #718096;
+      text-transform: uppercase;
+      margin: 40px 0 14px;
+    }
+
+    /* ── Card ── */
+    .card {
+      background: #fff;
+      border-radius: 16px;
+      border: 1px solid #dde4ed;
+      padding: 24px;
+      margin-bottom: 12px;
+    }
+    .card h2 {
+      font-size: 16px;
+      font-weight: 700;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .card h2 .ic {
+      width: 34px; height: 34px;
+      background: #ebf0fc;
+      border-radius: 9px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 17px;
+      flex-shrink: 0;
+    }
+    .card p  { font-size: 14px; color: #4a5568; margin-bottom: 6px; }
+    .card p:last-child { margin-bottom: 0; }
+    .card a  { color: #1952D3; font-weight: 500; text-decoration: none; }
+    .card a:hover { text-decoration: underline; }
+
+    /* ── Steps ── */
+    .steps { list-style: none; }
+    .steps li {
+      display: flex;
+      gap: 14px;
+      margin-bottom: 16px;
+      font-size: 14px;
+      color: #4a5568;
+    }
+    .steps li:last-child { margin-bottom: 0; }
+    .step-num {
+      width: 26px; height: 26px;
+      border-radius: 50%;
+      background: #1952D3;
+      color: #fff;
+      font-size: 13px;
+      font-weight: 700;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+    .steps li strong { color: #0d1b2a; }
+
+    /* ── FAQ ── */
+    details {
+      border-bottom: 1px solid #dde4ed;
+      padding: 14px 0;
+    }
+    details:first-of-type { padding-top: 0; }
+    details:last-of-type  { border-bottom: none; padding-bottom: 0; }
+    summary {
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: #0d1b2a;
+    }
+    summary::-webkit-details-marker { display: none; }
+    summary::after {
+      content: "+";
+      font-size: 20px;
+      color: #1952D3;
+      flex-shrink: 0;
+      margin-left: 12px;
+    }
+    details[open] summary::after { content: "−"; }
+    details p {
+      font-size: 14px;
+      color: #4a5568;
+      margin-top: 10px;
+      line-height: 1.65;
+    }
+
+    /* ── Contact form ── */
+    .form-group { margin-bottom: 14px; }
+    .form-group label {
+      display: block;
+      font-size: 13px;
+      font-weight: 600;
+      color: #4a5568;
+      margin-bottom: 6px;
+    }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 11px 14px;
+      border: 1px solid #dde4ed;
+      border-radius: 10px;
+      font-size: 14px;
+      font-family: inherit;
+      color: #0d1b2a;
+      background: #f8fafc;
+      outline: none;
+      transition: border 0.15s;
+    }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: #1952D3;
+      background: #fff;
+    }
+    .form-group textarea { resize: vertical; min-height: 110px; }
+    .btn-submit {
+      width: 100%;
+      padding: 14px;
+      background: #1952D3;
+      color: #fff;
+      border: none;
+      border-radius: 12px;
+      font-size: 15px;
+      font-weight: 700;
+      cursor: pointer;
+      margin-top: 4px;
+    }
+    .btn-submit:hover { background: #1440b0; }
+
+    /* ── Legal links ── */
+    .legal-links { display: flex; gap: 12px; flex-wrap: wrap; }
+    .legal-links a {
+      font-size: 14px;
+      color: #1952D3;
+      text-decoration: none;
+      font-weight: 500;
+    }
+    .legal-links a:hover { text-decoration: underline; }
+
+    /* ── Footer ── */
+    footer {
+      text-align: center;
+      padding: 32px 24px;
+      font-size: 13px;
+      color: #718096;
+    }
   </style>
 </head>
 <body>
 
-  <h1>Política de Privacidade</h1>
-  <p class="subtitle">Última atualização: 30 de março de 2026</p>
+  <!-- Hero -->
+  <div class="hero">
+    <img src="logo.png" alt="GarageFlow" />
+    <h1>Suporte GarageFlow</h1>
+    <p>Gestão de oficina automóvel — simples, rápido e sempre consigo.</p>
+    <div class="badge-row">
+      <a href="#" aria-label="App Store">
+        <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store" />
+      </a>
+    </div>
+  </div>
 
-  <p>Esta Política de Privacidade descreve como a GarageFlow ("nós") recolhe, utiliza e protege os seus dados pessoais, em conformidade com o Regulamento Geral sobre a Proteção de Dados (RGPD — Regulamento (UE) 2016/679) e a legislação portuguesa aplicável.</p>
+  <div class="container">
 
-  <h2>1. Responsável pelo Tratamento de Dados</h2>
-  <p>Responsável: GarageFlow<br>
-  E-mail: <a href="mailto:diogo.f.correia@protonmail.com">diogo.f.correia@protonmail.com</a><br>
-  Para questões relacionadas com os seus dados pessoais, contacte-nos através do e-mail acima indicado.</p>
+    <!-- Primeiros passos -->
+    <p class="section-title">Primeiros passos</p>
+    <div class="card">
+      <h2><span class="ic">🚀</span> Como começar</h2>
+      <ul class="steps">
+        <li>
+          <span class="step-num">1</span>
+          <span><strong>Criar conta</strong> — Registe-se com e-mail, Google ou Apple ID.</span>
+        </li>
+        <li>
+          <span class="step-num">2</span>
+          <span><strong>Perfil da oficina</strong> — Preencha o nome, telemóvel, serviços e logo. Estes dados aparecem em todos os PDFs gerados.</span>
+        </li>
+        <li>
+          <span class="step-num">3</span>
+          <span><strong>Adicionar clientes</strong> — Crie fichas de cliente com nome, contacto e notas.</span>
+        </li>
+        <li>
+          <span class="step-num">4</span>
+          <span><strong>Registar veículos</strong> — Associe cada veículo ao respetivo cliente (marca, modelo, matrícula).</span>
+        </li>
+        <li>
+          <span class="step-num">5</span>
+          <span><strong>Criar orçamentos</strong> — Adicione produtos, serviços e mão de obra ao orçamento.</span>
+        </li>
+        <li>
+          <span class="step-num">6</span>
+          <span><strong>Exportar PDF</strong> — Toque no ícone de partilha para gerar e enviar o orçamento em PDF diretamente ao cliente.</span>
+        </li>
+      </ul>
+    </div>
 
-  <h2>2. Dados Pessoais que Recolhemos</h2>
-  <p>Recolhemos os seguintes dados pessoais:</p>
-  <ul>
-    <li>Dados de identificação e contacto: nome, endereço de e-mail e palavra-passe (armazenada de forma encriptada).</li>
-    <li>Dados de perfil: nome de apresentação, fotografia de perfil e morada (opcionais).</li>
-    <li>Dados de utilização: registos de acesso, ações realizadas na aplicação e preferências.</li>
-    <li>Dados de clientes e veículos introduzidos por si: nome, telefone, e-mail, NIF, matrícula e histórico de serviços.</li>
-    <li>Dados de faturação e orçamentos criados na aplicação.</li>
-  </ul>
+    <!-- FAQ -->
+    <p class="section-title">Perguntas frequentes</p>
+    <div class="card">
 
-  <h2>3. Finalidade e Base Legal do Tratamento</h2>
-  <p>Tratamos os seus dados para as seguintes finalidades:</p>
-  <ul>
-    <li>Prestação do serviço (base legal: execução do contrato) — criação e gestão da sua conta, funcionamento das funcionalidades da aplicação.</li>
-    <li>Segurança e prevenção de fraude (base legal: interesse legítimo) — proteção da integridade da aplicação e dos seus dados.</li>
-    <li>Cumprimento de obrigações legais (base legal: obrigação legal) — conservação de registos contabilísticos e fiscais.</li>
-    <li>Melhoria do serviço (base legal: interesse legítimo) — análise de utilização agregada e anónima para melhorar a aplicação.</li>
-  </ul>
+      <details>
+        <summary>Esqueci-me da palavra-passe. O que faço?</summary>
+        <p>No ecrã de entrada, toque em <strong>"Esqueceste-te da palavra-passe?"</strong> e introduza o seu e-mail. Receberá um link para criar uma nova palavra-passe.</p>
+      </details>
 
-  <h2>4. Período de Conservação dos Dados</h2>
-  <ul>
-    <li>Dados de conta: conservados enquanto a conta estiver ativa e por um período de 30 dias após eliminação, para efeitos de recuperação.</li>
-    <li>Documentos fiscais e orçamentos: conservados por 10 anos, em conformidade com a legislação fiscal portuguesa.</li>
-    <li>Registos de acesso: conservados por 12 meses.</li>
-    <li>Fotografias de perfil: eliminadas imediatamente após substituição ou eliminação da conta.</li>
-  </ul>
+      <details>
+        <summary>Como altero o logo e os dados da minha oficina?</summary>
+        <p>Toque no ícone do utilizador no topo do dashboard e selecione <strong>"Perfil da oficina"</strong>. Pode alterar o logo, nome, telemóvel e descrição dos serviços. Estes dados são usados no cabeçalho dos PDFs.</p>
+      </details>
 
-  <h2>5. Partilha de Dados com Terceiros</h2>
-  <p>Não vendemos os seus dados pessoais. Partilhamos dados apenas com os seguintes subcontratantes, estritamente necessários para a prestação do serviço:</p>
-  <ul>
-    <li>Google Firebase (Authentication, Firestore, Storage) — alojamento seguro de dados, autenticação e armazenamento de ficheiros. Os servidores estão localizados na UE (Frankfurt, Bélgica). Política de privacidade: <a href="https://policies.google.com/privacy" target="_blank">policies.google.com/privacy</a>.</li>
-    <li>Google Analytics (Firebase Analytics) — análise de utilização anónima e agregada.</li>
-  </ul>
+      <details>
+        <summary>O PDF não tem os dados da minha oficina. Porquê?</summary>
+        <p>Certifique-se de que preencheu o <strong>Perfil da oficina</strong> (e não apenas o Perfil do utilizador). O PDF usa os dados da oficina — nome, telemóvel e logo — e não os dados pessoais do utilizador.</p>
+      </details>
 
-  <h2>6. Transferências Internacionais de Dados</h2>
-  <p>Os dados são processados primariamente em servidores localizados na União Europeia. Quando ocorram transferências para fora da UE (p. ex., para servidores da Google nos EUA), estas são efetuadas ao abrigo das Cláusulas Contratuais Tipo aprovadas pela Comissão Europeia, garantindo um nível de proteção equivalente ao exigido pelo RGPD.</p>
+      <details>
+        <summary>Posso usar a aplicação em mais do que um dispositivo?</summary>
+        <p>Sim. Os dados são sincronizados em tempo real com a cloud. Basta iniciar sessão com a mesma conta em qualquer dispositivo iOS.</p>
+      </details>
 
-  <h2>7. Os Seus Direitos</h2>
-  <p>Ao abrigo do RGPD, tem os seguintes direitos relativamente aos seus dados pessoais:</p>
-  <ul>
-    <li>Direito de acesso — obter confirmação sobre se os seus dados são tratados e aceder a uma cópia dos mesmos.</li>
-    <li>Direito de retificação — corrigir dados inexatos ou incompletos.</li>
-    <li>Direito ao apagamento ("direito a ser esquecido") — solicitar a eliminação dos seus dados, quando aplicável.</li>
-    <li>Direito à portabilidade — receber os seus dados num formato estruturado e legível por máquina.</li>
-    <li>Direito de oposição — opor-se ao tratamento baseado em interesse legítimo.</li>
-    <li>Direito de limitação — restringir o tratamento dos seus dados em determinadas circunstâncias.</li>
-    <li>Direito de não ficar sujeito a decisões automatizadas — não ser sujeito a decisões com efeitos jurídicos baseadas exclusivamente em tratamento automatizado.</li>
-  </ul>
-  <p>Para exercer qualquer destes direitos, contacte-nos em <a href="mailto:diogo.f.correia@protonmail.com">diogo.f.correia@protonmail.com</a>. Responderemos no prazo de 30 dias.</p>
+      <details>
+        <summary>Como elimino um cliente ou veículo?</summary>
+        <p>Aceda ao detalhe do cliente ou veículo e selecione a opção de eliminar no menu ou deslize para a esquerda na lista.</p>
+      </details>
 
-  <h2>8. Segurança dos Dados</h2>
-  <p>Adotamos medidas técnicas e organizativas adequadas para proteger os seus dados pessoais contra acesso não autorizado, perda ou destruição, incluindo:</p>
-  <ul>
-    <li>Encriptação em trânsito (TLS/HTTPS) e em repouso.</li>
-    <li>Autenticação segura com Firebase Authentication.</li>
-    <li>Controlo de acessos baseado em funções.</li>
-    <li>Regras de segurança do Firestore que garantem isolamento de dados entre utilizadores.</li>
-  </ul>
+      <details>
+        <summary>Consigo recuperar um orçamento eliminado?</summary>
+        <p>Não. A eliminação de orçamentos é permanente. Recomendamos exportar o PDF antes de eliminar qualquer registo.</p>
+      </details>
 
-  <h2>9. Cookies e Tecnologias Semelhantes</h2>
-  <p>A aplicação móvel não utiliza cookies. Utilizamos identificadores de dispositivo e tokens de sessão estritamente necessários para o funcionamento da autenticação e das funcionalidades da aplicação.</p>
+      <details>
+        <summary>Os meus dados estão seguros?</summary>
+        <p>Sim. Todos os dados são armazenados de forma encriptada no Google Firebase, com servidores na União Europeia. Consulte a nossa <a href="privacy-policy.html">Política de Privacidade</a> para mais detalhes.</p>
+      </details>
 
-  <h2>10. Menores</h2>
-  <p>O GarageFlow destina-se a utilizadores com 18 ou mais anos. Não recolhemos intencionalmente dados de menores. Caso tomemos conhecimento de que recolhemos dados de um menor, procederemos à sua eliminação imediata.</p>
+      <details>
+        <summary>Como elimino a minha conta?</summary>
+        <p>Envie um e-mail para <a href="mailto:diogo.f.correia@protonmail.com">diogo.f.correia@protonmail.com</a> com o pedido de eliminação. Processaremos o pedido no prazo de 30 dias e todos os seus dados serão apagados.</p>
+      </details>
 
-  <h2>11. Autoridade de Controlo</h2>
-  <p>Tem o direito de apresentar reclamação junto da autoridade de controlo competente. Em Portugal:</p>
-  <p>Comissão Nacional de Proteção de Dados (CNPD)<br>
-  <a href="https://www.cnpd.pt" target="_blank">www.cnpd.pt</a> | <a href="mailto:geral@cnpd.pt">geral@cnpd.pt</a><br>
-  Av. D. Carlos I, 134 — 1200-651 Lisboa</p>
+    </div>
 
-  <h2>12. Alterações a Esta Política</h2>
-  <p>Podemos atualizar esta Política de Privacidade periodicamente. Em caso de alterações significativas, notificaremos os utilizadores através da aplicação. A versão mais recente estará sempre disponível nas definições da aplicação.</p>
+    <!-- Formulário de contacto -->
+    <p class="section-title">Contactar suporte</p>
+    <div class="card">
+      <h2><span class="ic">✉️</span> Enviar mensagem</h2>
+      <p style="margin-bottom:20px">Respondemos no prazo de 1 dia útil.</p>
 
-  <h2>13. Contacto</h2>
-  <p>Para qualquer questão sobre esta política ou sobre o tratamento dos seus dados pessoais:</p>
-  <p>E-mail: <a href="mailto:diogo.f.correia@protonmail.com">diogo.f.correia@protonmail.com</a></p>
+      <form action="mailto:diogo.f.correia@protonmail.com" method="get" enctype="text/plain">
+        <div class="form-group">
+          <label for="nome">Nome</label>
+          <input type="text" id="nome" name="nome" placeholder="O seu nome" required />
+        </div>
+        <div class="form-group">
+          <label for="email">E-mail</label>
+          <input type="email" id="email" name="email" placeholder="o-seu@email.com" required />
+        </div>
+        <div class="form-group">
+          <label for="assunto">Assunto</label>
+          <select id="assunto" name="assunto">
+            <option>Problema técnico</option>
+            <option>Pergunta sobre funcionalidade</option>
+            <option>Conta e acesso</option>
+            <option>PDF e orçamentos</option>
+            <option>Eliminar conta</option>
+            <option>Outro</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="mensagem">Mensagem</label>
+          <textarea id="mensagem" name="body" placeholder="Descreva o seu problema ou questão..." required></textarea>
+        </div>
+        <button type="submit" class="btn-submit">Enviar mensagem</button>
+      </form>
+    </div>
+
+    <!-- Legal -->
+    <p class="section-title">Documentos legais</p>
+    <div class="card">
+      <div class="legal-links">
+        <a href="privacy-policy.html">Política de Privacidade</a>
+        <a href="terms.html">Termos e Condições</a>
+      </div>
+    </div>
+
+  </div>
+
+  <footer>
+    &copy; 2026 GarageFlow &mdash; Todos os direitos reservados
+  </footer>
 
 </body>
 </html>
