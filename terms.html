@@ -3,132 +3,340 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Termos e Condições — GarageFlow</title>
+  <title>Suporte — GarageFlow</title>
   <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
     body {
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      max-width: 760px;
-      margin: 0 auto;
-      padding: 40px 24px;
-      color: #1a1a1a;
-      line-height: 1.7;
+      background: #f0f4f8;
+      color: #0d1b2a;
+      line-height: 1.6;
     }
-    h1 { font-size: 28px; font-weight: 800; margin-bottom: 4px; }
-    .subtitle { color: #666; font-size: 14px; margin-bottom: 40px; }
-    h2 { font-size: 16px; font-weight: 700; margin-top: 32px; margin-bottom: 8px; }
-    p { margin: 8px 0; }
-    ul { margin: 8px 0 8px 20px; padding: 0; }
-    li { margin-bottom: 6px; }
-    a { color: #1952D3; }
+
+    /* ── Hero ── */
+    .hero {
+      background: #0d1b2a;
+      color: #fff;
+      text-align: center;
+      padding: 60px 24px 48px;
+    }
+    .hero img {
+      width: 88px;
+      height: 88px;
+      border-radius: 20px;
+      margin-bottom: 20px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+    }
+    .hero h1 { font-size: 30px; font-weight: 800; margin-bottom: 8px; }
+    .hero p  { font-size: 16px; color: #94a3b8; max-width: 480px; margin: 0 auto 28px; }
+
+    .badge-row { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; }
+    .badge-row a img { height: 44px; }
+
+    /* ── Layout ── */
+    .container { max-width: 760px; margin: 0 auto; padding: 40px 24px 80px; }
+
+    /* ── Section title ── */
+    .section-title {
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      color: #718096;
+      text-transform: uppercase;
+      margin: 40px 0 14px;
+    }
+
+    /* ── Card ── */
+    .card {
+      background: #fff;
+      border-radius: 16px;
+      border: 1px solid #dde4ed;
+      padding: 24px;
+      margin-bottom: 12px;
+    }
+    .card h2 {
+      font-size: 16px;
+      font-weight: 700;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .card h2 .ic {
+      width: 34px; height: 34px;
+      background: #ebf0fc;
+      border-radius: 9px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 17px;
+      flex-shrink: 0;
+    }
+    .card p  { font-size: 14px; color: #4a5568; margin-bottom: 6px; }
+    .card p:last-child { margin-bottom: 0; }
+    .card a  { color: #1952D3; font-weight: 500; text-decoration: none; }
+    .card a:hover { text-decoration: underline; }
+
+    /* ── Steps ── */
+    .steps { list-style: none; }
+    .steps li {
+      display: flex;
+      gap: 14px;
+      margin-bottom: 16px;
+      font-size: 14px;
+      color: #4a5568;
+    }
+    .steps li:last-child { margin-bottom: 0; }
+    .step-num {
+      width: 26px; height: 26px;
+      border-radius: 50%;
+      background: #1952D3;
+      color: #fff;
+      font-size: 13px;
+      font-weight: 700;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+    .steps li strong { color: #0d1b2a; }
+
+    /* ── FAQ ── */
+    details {
+      border-bottom: 1px solid #dde4ed;
+      padding: 14px 0;
+    }
+    details:first-of-type { padding-top: 0; }
+    details:last-of-type  { border-bottom: none; padding-bottom: 0; }
+    summary {
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: #0d1b2a;
+    }
+    summary::-webkit-details-marker { display: none; }
+    summary::after {
+      content: "+";
+      font-size: 20px;
+      color: #1952D3;
+      flex-shrink: 0;
+      margin-left: 12px;
+    }
+    details[open] summary::after { content: "−"; }
+    details p {
+      font-size: 14px;
+      color: #4a5568;
+      margin-top: 10px;
+      line-height: 1.65;
+    }
+
+    /* ── Contact form ── */
+    .form-group { margin-bottom: 14px; }
+    .form-group label {
+      display: block;
+      font-size: 13px;
+      font-weight: 600;
+      color: #4a5568;
+      margin-bottom: 6px;
+    }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 11px 14px;
+      border: 1px solid #dde4ed;
+      border-radius: 10px;
+      font-size: 14px;
+      font-family: inherit;
+      color: #0d1b2a;
+      background: #f8fafc;
+      outline: none;
+      transition: border 0.15s;
+    }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: #1952D3;
+      background: #fff;
+    }
+    .form-group textarea { resize: vertical; min-height: 110px; }
+    .btn-submit {
+      width: 100%;
+      padding: 14px;
+      background: #1952D3;
+      color: #fff;
+      border: none;
+      border-radius: 12px;
+      font-size: 15px;
+      font-weight: 700;
+      cursor: pointer;
+      margin-top: 4px;
+    }
+    .btn-submit:hover { background: #1440b0; }
+
+    /* ── Legal links ── */
+    .legal-links { display: flex; gap: 12px; flex-wrap: wrap; }
+    .legal-links a {
+      font-size: 14px;
+      color: #1952D3;
+      text-decoration: none;
+      font-weight: 500;
+    }
+    .legal-links a:hover { text-decoration: underline; }
+
+    /* ── Footer ── */
+    footer {
+      text-align: center;
+      padding: 32px 24px;
+      font-size: 13px;
+      color: #718096;
+    }
   </style>
 </head>
 <body>
 
-  <h1>Termos e Condições de Utilização</h1>
-  <p class="subtitle">Última atualização: 30 de março de 2026</p>
+  <!-- Hero -->
+  <div class="hero">
+    <img src="logo.png" alt="GarageFlow" />
+    <h1>Suporte GarageFlow</h1>
+    <p>Gestão de oficina automóvel — simples, rápido e sempre consigo.</p>
+    <div class="badge-row">
+      <a href="#" aria-label="App Store">
+        <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store" />
+      </a>
+    </div>
+  </div>
 
-  <p>Ao instalar, aceder ou utilizar a aplicação GarageFlow, o utilizador aceita ficar vinculado pelos presentes Termos e Condições ("Termos"). Caso não concorde com estes Termos, não deverá utilizar a aplicação.</p>
+  <div class="container">
 
-  <h2>1. Identificação do Prestador</h2>
-  <p>GarageFlow<br>
-  E-mail: <a href="mailto:diogo.f.correia@protonmail.com">diogo.f.correia@protonmail.com</a><br>
-  Aplicação disponível para iOS e Android.</p>
+    <!-- Primeiros passos -->
+    <p class="section-title">Primeiros passos</p>
+    <div class="card">
+      <h2><span class="ic">🚀</span> Como começar</h2>
+      <ul class="steps">
+        <li>
+          <span class="step-num">1</span>
+          <span><strong>Criar conta</strong> — Registe-se com e-mail, Google ou Apple ID.</span>
+        </li>
+        <li>
+          <span class="step-num">2</span>
+          <span><strong>Perfil da oficina</strong> — Preencha o nome, telemóvel, serviços e logo. Estes dados aparecem em todos os PDFs gerados.</span>
+        </li>
+        <li>
+          <span class="step-num">3</span>
+          <span><strong>Adicionar clientes</strong> — Crie fichas de cliente com nome, contacto e notas.</span>
+        </li>
+        <li>
+          <span class="step-num">4</span>
+          <span><strong>Registar veículos</strong> — Associe cada veículo ao respetivo cliente (marca, modelo, matrícula).</span>
+        </li>
+        <li>
+          <span class="step-num">5</span>
+          <span><strong>Criar orçamentos</strong> — Adicione produtos, serviços e mão de obra ao orçamento.</span>
+        </li>
+        <li>
+          <span class="step-num">6</span>
+          <span><strong>Exportar PDF</strong> — Toque no ícone de partilha para gerar e enviar o orçamento em PDF diretamente ao cliente.</span>
+        </li>
+      </ul>
+    </div>
 
-  <h2>2. Descrição do Serviço</h2>
-  <p>O GarageFlow é uma aplicação de software como serviço (SaaS) destinada à gestão de oficinas automóveis, que permite:</p>
-  <ul>
-    <li>Gestão de clientes e veículos.</li>
-    <li>Criação e gestão de orçamentos.</li>
-    <li>Exportação de documentos em formato PDF.</li>
-    <li>Gestão do perfil e definições da conta.</li>
-  </ul>
-  <p>O serviço destina-se exclusivamente a uso profissional e empresarial. Não se destina a consumidores finais no âmbito da Diretiva 2011/83/UE sobre direitos dos consumidores.</p>
+    <!-- FAQ -->
+    <p class="section-title">Perguntas frequentes</p>
+    <div class="card">
 
-  <h2>3. Registo e Conta de Utilizador</h2>
-  <ul>
-    <li>O utilizador deve ter pelo menos 18 anos de idade.</li>
-    <li>O registo exige um endereço de e-mail válido e uma palavra-passe.</li>
-    <li>O utilizador é responsável por manter a confidencialidade das suas credenciais.</li>
-    <li>Cada conta é pessoal e intransmissível.</li>
-    <li>O utilizador deve notificar-nos imediatamente em caso de acesso não autorizado à sua conta.</li>
-    <li>Reservamo-nos o direito de suspender ou terminar contas que violem estes Termos.</li>
-  </ul>
+      <details>
+        <summary>Esqueci-me da palavra-passe. O que faço?</summary>
+        <p>No ecrã de entrada, toque em <strong>"Esqueceste-te da palavra-passe?"</strong> e introduza o seu e-mail. Receberá um link para criar uma nova palavra-passe.</p>
+      </details>
 
-  <h2>4. Subscrição e Preços</h2>
-  <ul>
-    <li>O GarageFlow pode oferecer planos gratuitos e pagos. Os preços e funcionalidades de cada plano estão disponíveis na aplicação.</li>
-    <li>Os preços são apresentados com IVA incluído, salvo indicação em contrário.</li>
-    <li>As subscrições pagas renovam-se automaticamente, salvo cancelamento antes do fim do período vigente.</li>
-    <li>O cancelamento pode ser efetuado a qualquer momento através das definições da conta.</li>
-    <li>Não são emitidos reembolsos por períodos parciais de subscrição, exceto quando exigido por lei.</li>
-  </ul>
+      <details>
+        <summary>Como altero o logo e os dados da minha oficina?</summary>
+        <p>Toque no ícone do utilizador no topo do dashboard e selecione <strong>"Perfil da oficina"</strong>. Pode alterar o logo, nome, telemóvel e descrição dos serviços. Estes dados são usados no cabeçalho dos PDFs.</p>
+      </details>
 
-  <h2>5. Direito de Resolução (Utilizadores Consumidores)</h2>
-  <p>Para utilizadores que se qualifiquem como consumidores ao abrigo da legislação da União Europeia:</p>
-  <ul>
-    <li>Tem o direito de resolver o contrato no prazo de 14 dias após a subscrição, sem necessidade de indicar motivo.</li>
-    <li>Para exercer este direito, notifique-nos por e-mail para <a href="mailto:diogo.f.correia@protonmail.com">diogo.f.correia@protonmail.com</a> dentro do prazo indicado.</li>
-    <li>O direito de resolução não se aplica se o acesso ao serviço digital tiver sido iniciado com o consentimento expresso do utilizador antes do fim do prazo de 14 dias.</li>
-  </ul>
+      <details>
+        <summary>O PDF não tem os dados da minha oficina. Porquê?</summary>
+        <p>Certifique-se de que preencheu o <strong>Perfil da oficina</strong> (e não apenas o Perfil do utilizador). O PDF usa os dados da oficina — nome, telemóvel e logo — e não os dados pessoais do utilizador.</p>
+      </details>
 
-  <h2>6. Utilização Aceitável</h2>
-  <p>O utilizador compromete-se a não:</p>
-  <ul>
-    <li>Utilizar a aplicação para fins ilegais ou não autorizados.</li>
-    <li>Introduzir dados falsos, fraudulentos ou enganosos.</li>
-    <li>Tentar aceder a dados de outros utilizadores.</li>
-    <li>Realizar engenharia inversa, descompilar ou tentar extrair o código-fonte da aplicação.</li>
-    <li>Utilizar a aplicação de forma a sobrecarregar ou prejudicar os nossos sistemas.</li>
-    <li>Revender, sublicenciar ou transferir o acesso à aplicação a terceiros.</li>
-  </ul>
+      <details>
+        <summary>Posso usar a aplicação em mais do que um dispositivo?</summary>
+        <p>Sim. Os dados são sincronizados em tempo real com a cloud. Basta iniciar sessão com a mesma conta em qualquer dispositivo iOS.</p>
+      </details>
 
-  <h2>7. Propriedade Intelectual</h2>
-  <p>Todos os direitos de propriedade intelectual relativos à aplicação GarageFlow — incluindo software, design, marcas, logótipos e conteúdos — são propriedade exclusiva da GarageFlow ou dos seus licenciadores.</p>
-  <p>É concedida ao utilizador uma licença limitada, não exclusiva, não transferível e revogável para utilizar a aplicação exclusivamente para os fins previstos nestes Termos.</p>
+      <details>
+        <summary>Como elimino um cliente ou veículo?</summary>
+        <p>Aceda ao detalhe do cliente ou veículo e selecione a opção de eliminar no menu ou deslize para a esquerda na lista.</p>
+      </details>
 
-  <h2>8. Dados do Utilizador</h2>
-  <p>O utilizador conserva todos os direitos sobre os dados que introduz na aplicação (clientes, veículos, orçamentos, etc.). O GarageFlow não reivindica propriedade sobre esses dados.</p>
-  <p>O utilizador garante que tem autorização legal para introduzir os dados de terceiros (clientes) na aplicação, nomeadamente no que respeita à legislação de proteção de dados.</p>
+      <details>
+        <summary>Consigo recuperar um orçamento eliminado?</summary>
+        <p>Não. A eliminação de orçamentos é permanente. Recomendamos exportar o PDF antes de eliminar qualquer registo.</p>
+      </details>
 
-  <h2>9. Disponibilidade e Manutenção</h2>
-  <ul>
-    <li>Procuramos garantir a disponibilidade contínua do serviço, mas não garantimos disponibilidade ininterrupta (99,9% de uptime objetivo).</li>
-    <li>Podemos efetuar manutenção programada ou não programada, com ou sem aviso prévio.</li>
-    <li>Não nos responsabilizamos por perdas decorrentes de interrupções do serviço fora do nosso controlo.</li>
-  </ul>
+      <details>
+        <summary>Os meus dados estão seguros?</summary>
+        <p>Sim. Todos os dados são armazenados de forma encriptada no Google Firebase, com servidores na União Europeia. Consulte a nossa <a href="privacy-policy.html">Política de Privacidade</a> para mais detalhes.</p>
+      </details>
 
-  <h2>10. Limitação de Responsabilidade</h2>
-  <p>Na máxima extensão permitida pela lei aplicável:</p>
-  <ul>
-    <li>O GarageFlow é fornecido "tal como está" e "conforme disponível", sem garantias expressas ou implícitas.</li>
-    <li>Não nos responsabilizamos por danos indiretos, incidentais, especiais ou consequenciais.</li>
-    <li>A nossa responsabilidade total não excederá o montante pago pelo utilizador nos 12 meses anteriores ao evento que deu origem à reclamação.</li>
-    <li>Estas limitações não afetam os direitos imperativos dos consumidores ao abrigo da lei portuguesa e da UE.</li>
-  </ul>
+      <details>
+        <summary>Como elimino a minha conta?</summary>
+        <p>Envie um e-mail para <a href="mailto:diogo.f.correia@protonmail.com">diogo.f.correia@protonmail.com</a> com o pedido de eliminação. Processaremos o pedido no prazo de 30 dias e todos os seus dados serão apagados.</p>
+      </details>
 
-  <h2>11. Alterações ao Serviço e aos Termos</h2>
-  <ul>
-    <li>Reservamo-nos o direito de modificar, suspender ou descontinuar qualquer parte do serviço, com aviso prévio razoável.</li>
-    <li>Podemos atualizar estes Termos. Alterações significativas serão comunicadas com pelo menos 30 dias de antecedência.</li>
-    <li>A utilização continuada do serviço após esse prazo constitui aceitação dos novos Termos.</li>
-  </ul>
+    </div>
 
-  <h2>12. Resolução de Litígios</h2>
-  <p>Em caso de litígio, o utilizador pode recorrer a:</p>
-  <ul>
-    <li>Resolução amigável — contacte-nos em <a href="mailto:diogo.f.correia@protonmail.com">diogo.f.correia@protonmail.com</a>.</li>
-    <li>Centro de Arbitragem de Conflitos de Consumo — para utilizadores consumidores em Portugal (<a href="https://www.cniacc.pt" target="_blank">www.cniacc.pt</a>).</li>
-    <li>Plataforma europeia de resolução de litígios em linha (ODR) — <a href="https://ec.europa.eu/consumers/odr" target="_blank">ec.europa.eu/consumers/odr</a>.</li>
-    <li>Tribunais portugueses — para litígios não resolvidos por via extrajudicial.</li>
-  </ul>
+    <!-- Formulário de contacto -->
+    <p class="section-title">Contactar suporte</p>
+    <div class="card">
+      <h2><span class="ic">✉️</span> Enviar mensagem</h2>
+      <p style="margin-bottom:20px">Respondemos no prazo de 1 dia útil.</p>
 
-  <h2>13. Lei Aplicável e Foro</h2>
-  <p>Estes Termos são regidos pela lei portuguesa, em conformidade com a legislação da União Europeia, nomeadamente o RGPD, a Diretiva sobre Serviços Digitais (DSA) e a Diretiva sobre Direitos dos Consumidores.</p>
-  <p>Para utilizadores profissionais, fica eleito o foro da comarca de Lisboa para resolução de litígios. Para utilizadores consumidores, aplica-se o foro da sua residência habitual.</p>
+      <form action="mailto:diogo.f.correia@protonmail.com" method="get" enctype="text/plain">
+        <div class="form-group">
+          <label for="nome">Nome</label>
+          <input type="text" id="nome" name="nome" placeholder="O seu nome" required />
+        </div>
+        <div class="form-group">
+          <label for="email">E-mail</label>
+          <input type="email" id="email" name="email" placeholder="o-seu@email.com" required />
+        </div>
+        <div class="form-group">
+          <label for="assunto">Assunto</label>
+          <select id="assunto" name="assunto">
+            <option>Problema técnico</option>
+            <option>Pergunta sobre funcionalidade</option>
+            <option>Conta e acesso</option>
+            <option>PDF e orçamentos</option>
+            <option>Eliminar conta</option>
+            <option>Outro</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="mensagem">Mensagem</label>
+          <textarea id="mensagem" name="body" placeholder="Descreva o seu problema ou questão..." required></textarea>
+        </div>
+        <button type="submit" class="btn-submit">Enviar mensagem</button>
+      </form>
+    </div>
 
-  <h2>14. Contacto</h2>
-  <p>Para questões relacionadas com estes Termos:</p>
-  <p>E-mail: <a href="mailto:diogo.f.correia@protonmail.com">diogo.f.correia@protonmail.com</a></p>
+    <!-- Legal -->
+    <p class="section-title">Documentos legais</p>
+    <div class="card">
+      <div class="legal-links">
+        <a href="privacy-policy.html">Política de Privacidade</a>
+        <a href="terms.html">Termos e Condições</a>
+      </div>
+    </div>
+
+  </div>
+
+  <footer>
+    &copy; 2026 GarageFlow &mdash; Todos os direitos reservados
+  </footer>
 
 </body>
 </html>
